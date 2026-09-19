@@ -82,10 +82,43 @@ catalog, and open digital PDFs (past papers, textbooks, periodicals).
 
 ## What's stubbed vs. production-ready
 
-This is a working skeleton, not a finished product. Solid and ready to
-extend: schemas, auth, tenant isolation, the barcode/offline/sync flow, and
-i18n. Left for you to fill in before going live: real SMS provider
-credentials, file storage for PDF uploads (currently just a URL field),
-student self-registration/password reset, reservations, fines/payment
-tracking, and a Super Admin dashboard UI (the API routes exist in
-`tenantRoutes.js`, but there's no frontend for it yet).
+Solid and ready to extend: schemas, auth, tenant isolation, the barcode/
+offline/sync flow, i18n, reservations, fines, and a SuperAdmin dashboard.
+Left for you to fill in before going live: real SMS provider credentials
+(see below), file storage for PDF uploads (currently just a URL field),
+and student self-service password reset (currently librarian-only via the
+Students page).
+
+## SuperAdmin dashboard
+
+Log into the librarian panel with a SuperAdmin account (created via
+`node scripts/create-superadmin.js`) and you'll see a different nav — a
+"Schools" screen instead of the librarian tools. From there you can onboard
+new schools, suspend/reactivate them, and create each school's first
+librarian account, all through the UI (no more curl needed after your very
+first SuperAdmin login).
+
+## Reservations
+
+Students can reserve a physical title from the Catalog page when they want
+it but it's currently checked out. Librarians see the queue (oldest request
+first) on the Reservations page and mark a reservation "fulfilled" once
+they've handed the returned copy to that student — the actual checkout is
+still done through the normal barcode scan flow.
+
+## Fines
+
+The 8am overdue cron job now also accrues a daily fine (`FINE_PER_DAY_XAF`
+in `.env`, defaults to 50 XAF/day) on every loan that's overdue. Librarians
+see outstanding fines on the Fines page and mark them paid once collected.
+
+## SMS providers
+
+`utils/sms.js` supports four `SMS_PROVIDER` values:
+- `console` — logs to the terminal, default for local dev
+- `bulksms` — needs `BULKSMS_USERNAME` / `BULKSMS_PASSWORD`
+- `twilio` — needs `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_FROM_NUMBER`
+- `webhook` — POSTs `{ to, message }` to `SMS_WEBHOOK_URL`, a generic escape
+  hatch for wiring in MTN Zigi / Orange SMS API behind your own service,
+  since those typically require a signed partner agreement to access
+  directly

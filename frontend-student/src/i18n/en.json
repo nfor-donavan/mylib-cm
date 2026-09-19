@@ -17,7 +17,9 @@
     "title": "My Books",
     "noLoans": "You have no active loans right now.",
     "due": "Due {{date}}",
-    "overdue": "Overdue since {{date}}"
+    "overdue": "Overdue since {{date}}",
+    "myReservations": "My Reservations",
+    "cancelReservation": "Cancel reservation"
   },
   "catalog": {
     "title": "Catalog",
@@ -25,6 +27,7 @@
     "category": "Category",
     "reserve": "Reserve",
     "reserved": "Reserved",
+    "reserveSuccess": "Reserved! We'll let the librarian know when you check in.",
     "availableCopies": "{{available}} of {{total}} copies available",
     "digital": "Digital resource"
   },

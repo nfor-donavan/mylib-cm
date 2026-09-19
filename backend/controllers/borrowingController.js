@@ -70,4 +70,25 @@ async function listActive(req, res) {
   res.json({ logs });
 }
 
-module.exports = { checkout, returnBook, listActive };
+// GET /api/borrowing/fines   (Librarian/Admin) — outstanding fines, unpaid first
+async function listFines(req, res) {
+  const logs = await BorrowingLog.find(req.scoped({ fineAmountXAF: { $gt: 0 } }))
+    .populate({ path: "itemId", populate: { path: "bookId" } })
+    .populate("userId", "fullName matricule phoneNumber")
+    .sort({ finePaid: 1, expectedReturnDate: 1 });
+
+  res.json({ logs });
+}
+
+// PATCH /api/borrowing/:id/pay-fine   (Librarian/Admin)
+async function payFine(req, res) {
+  const log = await BorrowingLog.findOneAndUpdate(
+    req.scoped({ _id: req.params.id }),
+    { finePaid: true, finePaidAt: new Date() },
+    { new: true }
+  );
+  if (!log) return res.status(404).json({ error: "Loan record not found" });
+  res.json(log);
+}
+
+module.exports = { checkout, returnBook, listActive, listFines, payFine };

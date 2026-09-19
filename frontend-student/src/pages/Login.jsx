@@ -16,7 +16,7 @@ export default function Login({ onLogin }) {
     setLoading(true);
     try {
       const { data } = await api.post("/auth/login", { subdomain, matricule, password });
-      onLogin(data.token);
+      onLogin(data.token, data.user);
     } catch (err) {
       setError(err.response?.data?.error || "Login failed");
     } finally {

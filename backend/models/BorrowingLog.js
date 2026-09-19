@@ -13,6 +13,8 @@ const BorrowingLogSchema = new mongoose.Schema(
     smsRemindersSentCount: { type: Number, default: 0 },
     lastReminderSentAt: Date,
     fineAmountXAF: { type: Number, default: 0 },
+    finePaid: { type: Boolean, default: false },
+    finePaidAt: Date,
     // Set when this log was created while the librarian device was offline
     // and later synced up from IndexedDB (see /api/sync).
     createdOffline: { type: Boolean, default: false },

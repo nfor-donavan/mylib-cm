@@ -5,6 +5,9 @@
     "checkout": "Emprunt / Retour",
     "catalog": "Catalogue",
     "students": "Eleves",
+    "reservations": "Reservations",
+    "fines": "Amendes",
+    "schools": "Ecoles",
     "logout": "Deconnexion"
   },
   "checkout": {

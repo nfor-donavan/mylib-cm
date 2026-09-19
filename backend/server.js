@@ -13,6 +13,7 @@ const borrowingRoutes = require("./routes/borrowingRoutes");
 const syncRoutes = require("./routes/syncRoutes");
 const tenantRoutes = require("./routes/tenantRoutes");
 const userRoutes = require("./routes/userRoutes");
+const reservationRoutes = require("./routes/reservationRoutes");
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.use("/api/borrowing", borrowingRoutes);
 app.use("/api/sync", syncRoutes);
 app.use("/api/tenants", tenantRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/reservations", reservationRoutes);
 
 // Central error handler — keeps controllers free of repetitive try/catch noise
 app.use((err, req, res, next) => {

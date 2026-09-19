@@ -6,6 +6,7 @@ export default function Login({ onLogin }) {
   const { t } = useTranslation();
   const [subdomain, setSubdomain] = useState("");
   const [matricule, setMatricule] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -15,8 +16,13 @@ export default function Login({ onLogin }) {
     setError(null);
     setLoading(true);
     try {
-      const { data } = await api.post("/auth/login", { subdomain, matricule, password });
-      onLogin(data.token);
+      const { data } = await api.post("/auth/login", {
+        subdomain: subdomain || undefined,
+        matricule: matricule || undefined,
+        email: email || undefined,
+        password,
+      });
+      onLogin(data.token, data.user);
     } catch (err) {
       setError(err.response?.data?.error || "Login failed");
     } finally {
@@ -47,10 +53,13 @@ export default function Login({ onLogin }) {
           {error && <div className="banner warn">{error}</div>}
 
           <label style={styles.label}>{t("login.subdomain")}</label>
-          <input value={subdomain} onChange={(e) => setSubdomain(e.target.value)} placeholder="e.g. sevic" required style={{ marginBottom: 14 }} />
+          <input value={subdomain} onChange={(e) => setSubdomain(e.target.value)} placeholder="e.g. sevic (leave blank for SuperAdmin)" style={{ marginBottom: 14 }} />
 
           <label style={styles.label}>{t("login.matricule")}</label>
-          <input value={matricule} onChange={(e) => setMatricule(e.target.value)} required style={{ marginBottom: 14 }} />
+          <input value={matricule} onChange={(e) => setMatricule(e.target.value)} placeholder="matricule, or leave blank and use email below" style={{ marginBottom: 14 }} />
+
+          <label style={styles.label}>Email (SuperAdmin only)</label>
+          <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" style={{ marginBottom: 14 }} />
 
           <label style={styles.label}>{t("login.password")}</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ marginBottom: 22 }} />

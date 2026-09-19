@@ -5,11 +5,15 @@ const Book = require("../models/Book");
 const User = require("../models/User");
 const { sendSms, buildOverdueMessage } = require("../utils/sms");
 
+const FINE_PER_DAY_XAF = Number(process.env.FINE_PER_DAY_XAF || 50);
+
 async function runOverdueSweep() {
   const now = new Date();
 
+  // Includes loans already marked "Overdue" so their fine keeps accruing
+  // daily, not just loans crossing the line for the first time today.
   const overdueLogs = await BorrowingLog.find({
-    status: "Active",
+    status: { $in: ["Active", "Overdue"] },
     expectedReturnDate: { $lt: now },
   });
 
@@ -18,6 +22,7 @@ async function runOverdueSweep() {
   for (const log of overdueLogs) {
     try {
       log.status = "Overdue";
+      log.fineAmountXAF = (log.fineAmountXAF || 0) + FINE_PER_DAY_XAF;
 
       const [item, borrower] = await Promise.all([
         InventoryItem.findById(log.itemId),
@@ -28,6 +33,8 @@ async function runOverdueSweep() {
         continue;
       }
 
+      // Only SMS on the day it first goes overdue, or every reminder cycle —
+      // keeping this simple: text every sweep, same as before.
       const book = await Book.findById(item.bookId);
 
       const message = buildOverdueMessage({

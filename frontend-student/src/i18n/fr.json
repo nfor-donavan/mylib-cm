@@ -17,7 +17,9 @@
     "title": "Mes Livres",
     "noLoans": "Vous n'avez aucun emprunt actif pour le moment.",
     "due": "A rendre le {{date}}",
-    "overdue": "En retard depuis le {{date}}"
+    "overdue": "En retard depuis le {{date}}",
+    "myReservations": "Mes Reservations",
+    "cancelReservation": "Annuler la reservation"
   },
   "catalog": {
     "title": "Catalogue",
@@ -25,6 +27,7 @@
     "category": "Categorie",
     "reserve": "Reserver",
     "reserved": "Reserve",
+    "reserveSuccess": "Reserve ! Nous informerons le bibliothecaire.",
     "availableCopies": "{{available}} sur {{total}} exemplaires disponibles",
     "digital": "Ressource numerique"
   },

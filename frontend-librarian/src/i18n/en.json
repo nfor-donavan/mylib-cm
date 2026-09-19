@@ -5,6 +5,9 @@
     "checkout": "Checkout / Return",
     "catalog": "Catalog",
     "students": "Students",
+    "reservations": "Reservations",
+    "fines": "Fines",
+    "schools": "Schools",
     "logout": "Log out"
   },
   "checkout": {

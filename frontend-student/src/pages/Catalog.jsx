@@ -24,16 +24,18 @@ export default function Catalog() {
         style={{ marginBottom: 12 }}
       />
 
-      {books.map((b) => (
-        <div className="card" key={b._id}>
-          <div style={{ fontWeight: 600 }}>{b.title}</div>
-          <div style={{ fontSize: 13, color: "var(--text-muted)" }}>{b.author}</div>
-          <div style={{ marginTop: 8, display: "flex", gap: 6, flexWrap: "wrap" }}>
-            <span className="badge available">{t(`categories.${b.category}`)}</span>
-            {b.bookType === "Digital_PDF" && <span className="badge borrowed">{t("catalog.digital")}</span>}
+      <div className="cards-grid">
+        {books.map((b) => (
+          <div className="card" key={b._id}>
+            <div style={{ fontWeight: 600 }}>{b.title}</div>
+            <div style={{ fontSize: 13, color: "var(--text-muted)" }}>{b.author}</div>
+            <div style={{ marginTop: 8, display: "flex", gap: 6, flexWrap: "wrap" }}>
+              <span className="badge available">{t(`categories.${b.category}`)}</span>
+              {b.bookType === "Digital_PDF" && <span className="badge borrowed">{t("catalog.digital")}</span>}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       {books.length === 0 && <div className="card" style={{ color: "var(--text-muted)" }}>No books found</div>}
     </div>

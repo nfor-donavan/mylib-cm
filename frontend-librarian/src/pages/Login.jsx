@@ -25,28 +25,77 @@ export default function Login({ onLogin }) {
   }
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--navy)" }}>
-      <form onSubmit={handleSubmit} className="card" style={{ width: 340 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
-          <img src="/icon.png" alt="" style={{ width: 40, height: 40, borderRadius: 9 }} />
-          <h2 style={{ margin: 0, fontSize: 18 }}>{t("login.title")}</h2>
+    <div style={styles.page}>
+      <div style={styles.panelWrap}>
+        <div style={styles.brandPanel}>
+          <img src="/icon.png" alt="" style={styles.brandIcon} />
+          <h1 style={styles.brandTitle}>MyLib CM</h1>
+          <p style={styles.brandTagline}>
+            Catalog, checkout, and inventory — built for school librarians across Cameroon.
+          </p>
+          <ul style={styles.featureList}>
+            <li>Barcode scanner checkout</li>
+            <li>Works offline through power cuts</li>
+            <li>English / Français</li>
+          </ul>
         </div>
 
-        {error && <div className="banner warn">{error}</div>}
+        <form onSubmit={handleSubmit} style={styles.formPanel}>
+          <h2 style={styles.formTitle}>{t("login.title")}</h2>
+          <p style={styles.formSubtitle}>Sign in with your school's credentials</p>
 
-        <label>{t("login.subdomain")}</label>
-        <input value={subdomain} onChange={(e) => setSubdomain(e.target.value)} placeholder="ghsbuea" required style={{ marginBottom: 12 }} />
+          {error && <div className="banner warn">{error}</div>}
 
-        <label>{t("login.matricule")}</label>
-        <input value={matricule} onChange={(e) => setMatricule(e.target.value)} required style={{ marginBottom: 12 }} />
+          <label style={styles.label}>{t("login.subdomain")}</label>
+          <input value={subdomain} onChange={(e) => setSubdomain(e.target.value)} placeholder="e.g. sevic" required style={{ marginBottom: 14 }} />
 
-        <label>{t("login.password")}</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ marginBottom: 18 }} />
+          <label style={styles.label}>{t("login.matricule")}</label>
+          <input value={matricule} onChange={(e) => setMatricule(e.target.value)} required style={{ marginBottom: 14 }} />
 
-        <button className="primary" type="submit" disabled={loading} style={{ width: "100%" }}>
-          {loading ? "..." : t("login.submit")}
-        </button>
-      </form>
+          <label style={styles.label}>{t("login.password")}</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ marginBottom: 22 }} />
+
+          <button className="primary" type="submit" disabled={loading} style={{ width: "100%", padding: "12px 0" }}>
+            {loading ? "Signing in…" : t("login.submit")}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "linear-gradient(135deg, #0b1f4d 0%, #142b63 60%, #1c3a7a 100%)",
+    padding: 20,
+  },
+  panelWrap: {
+    display: "flex",
+    width: "100%",
+    maxWidth: 860,
+    borderRadius: 16,
+    overflow: "hidden",
+    boxShadow: "0 30px 60px rgba(11, 31, 77, 0.35)",
+  },
+  brandPanel: {
+    flex: "0 0 42%",
+    background: "linear-gradient(160deg, #0b1f4d, #1f9d6b)",
+    color: "#fff",
+    padding: "44px 34px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  brandIcon: { width: 52, height: 52, borderRadius: 12, marginBottom: 18 },
+  brandTitle: { fontSize: 26, margin: "0 0 8px" },
+  brandTagline: { fontSize: 14, lineHeight: 1.5, opacity: 0.9, margin: "0 0 22px" },
+  featureList: { listStyle: "none", padding: 0, margin: 0, fontSize: 13, opacity: 0.85, lineHeight: 2.2 },
+  formPanel: { flex: 1, background: "#fff", padding: "44px 38px" },
+  formTitle: { margin: "0 0 4px", fontSize: 20, color: "#1a1f36" },
+  formSubtitle: { margin: "0 0 22px", fontSize: 13, color: "#626b85" },
+  label: { fontSize: 13, color: "#626b85", display: "block", marginBottom: 6 },
+};

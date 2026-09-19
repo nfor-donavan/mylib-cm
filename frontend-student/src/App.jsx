@@ -39,6 +39,12 @@ export default function App() {
         </div>
       </div>
 
+      <nav className="tabbar">
+        <NavLink to="/" end>{t("nav.home")}</NavLink>
+        <NavLink to="/catalog">{t("nav.catalog")}</NavLink>
+        <NavLink to="/downloads">{t("nav.downloads")}</NavLink>
+      </nav>
+
       <div className="content">
         <Routes>
           <Route path="/" element={<MyBooks />} />
@@ -47,12 +53,6 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-
-      <nav className="tabbar">
-        <NavLink to="/" end>{t("nav.home")}</NavLink>
-        <NavLink to="/catalog">{t("nav.catalog")}</NavLink>
-        <NavLink to="/downloads">{t("nav.downloads")}</NavLink>
-      </nav>
     </div>
   );
 }

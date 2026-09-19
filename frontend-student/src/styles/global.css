@@ -23,6 +23,40 @@ body { margin: 0; background: var(--bg); color: var(--text); }
   background: var(--bg);
 }
 
+/* On tablet/desktop widths, stop pretending to be a phone: widen the shell,
+   move the tab bar out of the fixed bottom dock and into a normal top nav. */
+@media (min-width: 860px) {
+  .mobile-shell {
+    max-width: 1180px;
+    padding-bottom: 0;
+    box-shadow: 0 0 0 1px var(--border);
+    min-height: 100vh;
+  }
+  .content { padding: 28px 36px; }
+  .tabbar {
+    position: static;
+    transform: none;
+    max-width: none;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 0 28px;
+    border-top: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .tabbar a {
+    flex: none;
+    padding: 14px 18px;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+  }
+  .tabbar a.active { border-bottom-color: var(--blue); }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+}
+
 .topbar {
   background: var(--navy);
   color: #fff;

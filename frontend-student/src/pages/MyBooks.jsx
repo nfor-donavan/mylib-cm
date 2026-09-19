@@ -18,23 +18,25 @@ export default function MyBooks() {
 
       {loans?.length === 0 && <div className="card">{t("home.noLoans")}</div>}
 
-      {loans?.map((log) => (
-        <div className="card" key={log._id}>
-          <div style={{ fontWeight: 600 }}>{log.itemId?.bookId?.title}</div>
-          <div style={{ fontSize: 13, color: "var(--text-muted)" }}>{log.itemId?.bookId?.author}</div>
-          <div style={{ marginTop: 8 }}>
-            {log.status === "Overdue" ? (
-              <span className="badge overdue">
-                {t("home.overdue", { date: new Date(log.expectedReturnDate).toLocaleDateString() })}
-              </span>
-            ) : (
-              <span className="badge borrowed">
-                {t("home.due", { date: new Date(log.expectedReturnDate).toLocaleDateString() })}
-              </span>
-            )}
+      <div className="cards-grid">
+        {loans?.map((log) => (
+          <div className="card" key={log._id}>
+            <div style={{ fontWeight: 600 }}>{log.itemId?.bookId?.title}</div>
+            <div style={{ fontSize: 13, color: "var(--text-muted)" }}>{log.itemId?.bookId?.author}</div>
+            <div style={{ marginTop: 8 }}>
+              {log.status === "Overdue" ? (
+                <span className="badge overdue">
+                  {t("home.overdue", { date: new Date(log.expectedReturnDate).toLocaleDateString() })}
+                </span>
+              ) : (
+                <span className="badge borrowed">
+                  {t("home.due", { date: new Date(log.expectedReturnDate).toLocaleDateString() })}
+                </span>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

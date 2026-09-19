@@ -25,28 +25,56 @@ export default function Login({ onLogin }) {
   }
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--navy)", padding: 20 }}>
-      <form onSubmit={handleSubmit} className="card" style={{ width: "100%", maxWidth: 340 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
-          <img src="/icon.png" alt="" style={{ width: 40, height: 40, borderRadius: 9 }} />
-          <h2 style={{ margin: 0, fontSize: 18 }}>{t("login.title")}</h2>
+    <div style={styles.page}>
+      <div style={styles.card}>
+        <div style={styles.iconWrap}>
+          <img src="/icon.png" alt="" style={styles.icon} />
         </div>
+        <h1 style={styles.title}>MyLib CM</h1>
+        <p style={styles.subtitle}>{t("login.title")}</p>
 
-        {error && <div className="banner warn">{error}</div>}
+        <form onSubmit={handleSubmit} style={{ marginTop: 10 }}>
+          {error && <div className="banner warn">{error}</div>}
 
-        <label>{t("login.subdomain")}</label>
-        <input value={subdomain} onChange={(e) => setSubdomain(e.target.value)} placeholder="ghsbuea" required style={{ marginBottom: 12 }} />
+          <label style={styles.label}>{t("login.subdomain")}</label>
+          <input value={subdomain} onChange={(e) => setSubdomain(e.target.value)} placeholder="e.g. sevic" required style={{ marginBottom: 14 }} />
 
-        <label>{t("login.matricule")}</label>
-        <input value={matricule} onChange={(e) => setMatricule(e.target.value)} required style={{ marginBottom: 12 }} />
+          <label style={styles.label}>{t("login.matricule")}</label>
+          <input value={matricule} onChange={(e) => setMatricule(e.target.value)} required style={{ marginBottom: 14 }} />
 
-        <label>{t("login.password")}</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ marginBottom: 18 }} />
+          <label style={styles.label}>{t("login.password")}</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ marginBottom: 22 }} />
 
-        <button className="primary" type="submit" disabled={loading} style={{ width: "100%" }}>
-          {loading ? "..." : t("login.submit")}
-        </button>
-      </form>
+          <button className="primary" type="submit" disabled={loading} style={{ width: "100%", padding: "12px 0" }}>
+            {loading ? "Signing in…" : t("login.submit")}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "radial-gradient(circle at top, #1c3a7a, #0b1f4d 70%)",
+    padding: 20,
+  },
+  card: {
+    width: "100%",
+    maxWidth: 380,
+    background: "#fff",
+    borderRadius: 18,
+    padding: "36px 30px",
+    boxShadow: "0 30px 60px rgba(11, 31, 77, 0.35)",
+    textAlign: "center",
+  },
+  iconWrap: { display: "flex", justifyContent: "center", marginBottom: 14 },
+  icon: { width: 56, height: 56, borderRadius: 13 },
+  title: { margin: "0 0 4px", fontSize: 20, color: "#1a1f36" },
+  subtitle: { margin: "0 0 18px", fontSize: 13, color: "#626b85" },
+  label: { fontSize: 13, color: "#626b85", display: "block", marginBottom: 6, textAlign: "left" },
+};

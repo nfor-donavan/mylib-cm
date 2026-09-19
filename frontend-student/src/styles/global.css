@@ -1,0 +1,91 @@
+:root {
+  --navy: #0b1f4d;
+  --green: #1f9d6b;
+  --blue: #2f6fed;
+  --amber: #f0a92c;
+  --bg: #f6f7fb;
+  --card-bg: #ffffff;
+  --text: #1a1f36;
+  --text-muted: #626b85;
+  --border: #e3e6ef;
+  --danger: #d64545;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+
+.mobile-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 70px;
+  background: var(--bg);
+}
+
+.topbar {
+  background: var(--navy);
+  color: #fff;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar .brand { display: flex; align-items: center; gap: 8px; }
+.topbar img { width: 30px; height: 30px; border-radius: 7px; }
+.topbar .brand span { font-weight: 600; font-size: 15px; }
+.topbar .lang-switch button { background: none; border: none; color: #c7d0ea; font-size: 12px; cursor: pointer; padding: 4px; }
+.topbar .lang-switch button.active { color: #fff; font-weight: 600; }
+
+.content { padding: 16px; }
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid var(--border);
+}
+.tabbar a {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0 10px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.tabbar a.active { color: var(--blue); font-weight: 600; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.banner { padding: 10px 12px; border-radius: 10px; font-size: 13px; margin-bottom: 12px; }
+.banner.warn { background: #fff4e0; color: #8a5a00; border: 1px solid #f0d798; }
+.banner.success { background: #e6f7ee; color: #14663f; border: 1px solid #b6e6cd; }
+
+input, select, button { font-family: inherit; font-size: 14px; }
+input, select { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); width: 100%; }
+
+button.primary {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 500; }
+.badge.available { background: #e6f7ee; color: #14663f; }
+.badge.borrowed { background: #fff4e0; color: #8a5a00; }
+.badge.overdue { background: #fbe8e8; color: var(--danger); }

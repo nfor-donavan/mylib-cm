@@ -1,0 +1,48 @@
+{
+  "appName": "MyLib CM",
+  "nav": {
+    "home": "My Books",
+    "catalog": "Catalog",
+    "downloads": "Downloads",
+    "logout": "Log out"
+  },
+  "login": {
+    "title": "Student sign in",
+    "subdomain": "School subdomain",
+    "matricule": "Matricule",
+    "password": "Password",
+    "submit": "Sign in"
+  },
+  "home": {
+    "title": "My Books",
+    "noLoans": "You have no active loans right now.",
+    "due": "Due {{date}}",
+    "overdue": "Overdue since {{date}}"
+  },
+  "catalog": {
+    "title": "Catalog",
+    "searchPlaceholder": "Search by title, author or subject",
+    "category": "Category",
+    "reserve": "Reserve",
+    "reserved": "Reserved",
+    "availableCopies": "{{available}} of {{total}} copies available",
+    "digital": "Digital resource"
+  },
+  "categories": {
+    "Curriculum_Textbook": "Curriculum textbook",
+    "Past_Paper": "Past paper",
+    "Fiction_Novel": "Fiction / novel",
+    "Reference": "Reference",
+    "Periodical": "Periodical",
+    "Religious": "Religious",
+    "Career_Guidance": "Career guidance",
+    "Biography": "Biography",
+    "Childrens_Book": "Children's book",
+    "Other": "Other"
+  },
+  "downloads": {
+    "title": "Digital resources",
+    "subtitle": "Past papers, textbooks and periodicals available as PDF",
+    "open": "Open PDF"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "appName": "MyLib CM",
+  "nav": {
+    "dashboard": "Dashboard",
+    "checkout": "Checkout / Return",
+    "catalog": "Catalog",
+    "students": "Students",
+    "logout": "Log out"
+  },
+  "checkout": {
+    "title": "Checkout / Return",
+    "scanPrompt": "Scan a book barcode to begin",
+    "matriculeLabel": "Student / Teacher matricule",
+    "offlineBanner": "You're offline. Checkouts are being saved locally and will sync automatically.",
+    "syncBanner": "Syncing {{count}} offline checkout(s)...",
+    "checkoutSuccess": "Checked out to {{name}}, due {{date}}",
+    "returnSuccess": "Returned successfully"
+  },
+  "catalog": {
+    "title": "Catalog",
+    "searchPlaceholder": "Search by title, author or tag",
+    "addBook": "Add book",
+    "category": "Category",
+    "language": "Language",
+    "availableCopies": "{{available}} of {{total}} copies available"
+  },
+  "categories": {
+    "Curriculum_Textbook": "Curriculum textbook",
+    "Past_Paper": "Past paper",
+    "Fiction_Novel": "Fiction / novel",
+    "Reference": "Reference",
+    "Periodical": "Periodical",
+    "Religious": "Religious",
+    "Career_Guidance": "Career guidance",
+    "Biography": "Biography",
+    "Childrens_Book": "Children's book",
+    "Other": "Other"
+  },
+  "students": {
+    "title": "Students",
+    "addStudent": "Add student",
+    "matricule": "Matricule",
+    "fullName": "Full name",
+    "class": "Class",
+    "phone": "Phone number"
+  },
+  "login": {
+    "title": "Librarian sign in",
+    "subdomain": "School subdomain",
+    "matricule": "Matricule",
+    "password": "Password",
+    "submit": "Sign in"
+  }
+}

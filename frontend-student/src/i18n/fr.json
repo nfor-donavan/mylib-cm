@@ -1,0 +1,48 @@
+{
+  "appName": "MyLib CM",
+  "nav": {
+    "home": "Mes Livres",
+    "catalog": "Catalogue",
+    "downloads": "Telechargements",
+    "logout": "Deconnexion"
+  },
+  "login": {
+    "title": "Connexion eleve",
+    "subdomain": "Sous-domaine de l'ecole",
+    "matricule": "Matricule",
+    "password": "Mot de passe",
+    "submit": "Se connecter"
+  },
+  "home": {
+    "title": "Mes Livres",
+    "noLoans": "Vous n'avez aucun emprunt actif pour le moment.",
+    "due": "A rendre le {{date}}",
+    "overdue": "En retard depuis le {{date}}"
+  },
+  "catalog": {
+    "title": "Catalogue",
+    "searchPlaceholder": "Rechercher par titre, auteur ou matiere",
+    "category": "Categorie",
+    "reserve": "Reserver",
+    "reserved": "Reserve",
+    "availableCopies": "{{available}} sur {{total}} exemplaires disponibles",
+    "digital": "Ressource numerique"
+  },
+  "categories": {
+    "Curriculum_Textbook": "Manuel scolaire",
+    "Past_Paper": "Epreuve des annees anterieures",
+    "Fiction_Novel": "Roman / fiction",
+    "Reference": "Ouvrage de reference",
+    "Periodical": "Periodique",
+    "Religious": "Religieux",
+    "Career_Guidance": "Orientation professionnelle",
+    "Biography": "Biographie",
+    "Childrens_Book": "Livre pour enfants",
+    "Other": "Autre"
+  },
+  "downloads": {
+    "title": "Ressources numeriques",
+    "subtitle": "Epreuves, manuels et periodiques disponibles en PDF",
+    "open": "Ouvrir le PDF"
+  }
+}

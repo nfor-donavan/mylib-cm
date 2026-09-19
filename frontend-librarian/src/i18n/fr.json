@@ -1,0 +1,54 @@
+{
+  "appName": "MyLib CM",
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "checkout": "Emprunt / Retour",
+    "catalog": "Catalogue",
+    "students": "Eleves",
+    "logout": "Deconnexion"
+  },
+  "checkout": {
+    "title": "Emprunt / Retour",
+    "scanPrompt": "Scannez un code-barres pour commencer",
+    "matriculeLabel": "Matricule eleve / enseignant",
+    "offlineBanner": "Vous etes hors ligne. Les emprunts sont enregistres localement et seront synchronises automatiquement.",
+    "syncBanner": "Synchronisation de {{count}} emprunt(s) hors ligne...",
+    "checkoutSuccess": "Emprunte par {{name}}, a rendre le {{date}}",
+    "returnSuccess": "Retour enregistre avec succes"
+  },
+  "catalog": {
+    "title": "Catalogue",
+    "searchPlaceholder": "Rechercher par titre, auteur ou tag",
+    "addBook": "Ajouter un livre",
+    "category": "Categorie",
+    "language": "Langue",
+    "availableCopies": "{{available}} sur {{total}} exemplaires disponibles"
+  },
+  "categories": {
+    "Curriculum_Textbook": "Manuel scolaire",
+    "Past_Paper": "Epreuve des annees anterieures",
+    "Fiction_Novel": "Roman / fiction",
+    "Reference": "Ouvrage de reference",
+    "Periodical": "Periodique",
+    "Religious": "Religieux",
+    "Career_Guidance": "Orientation professionnelle",
+    "Biography": "Biographie",
+    "Childrens_Book": "Livre pour enfants",
+    "Other": "Autre"
+  },
+  "students": {
+    "title": "Eleves",
+    "addStudent": "Ajouter un eleve",
+    "matricule": "Matricule",
+    "fullName": "Nom complet",
+    "class": "Classe",
+    "phone": "Numero de telephone"
+  },
+  "login": {
+    "title": "Connexion bibliothecaire",
+    "subdomain": "Sous-domaine de l'ecole",
+    "matricule": "Matricule",
+    "password": "Mot de passe",
+    "submit": "Se connecter"
+  }
+}
